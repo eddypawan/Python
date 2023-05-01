@@ -42,11 +42,11 @@ for index, row in df.iterrows():
     tc_width, tc_height = title1.size
     color_clip = ColorClip(size=(tc_width+100, tc_height+50),color=(255,255,255))
     color_clip = color_clip.set_opacity(.8)
-    color_clip.save_frame("./images/colorClip.png") 
-    title1.save_frame("./images/title1.png") 
+    # color_clip.save_frame("./images/colorClip.png") 
+    # title1.save_frame("./images/title1.png") 
     final_clip = CompositeVideoClip([color_clip,title1]).set_duration(clip.duration)
     final_clip = final_clip.set_position(("center",0))
-    final_clip.save_frame("./images/final_clip.png") 
+    # final_clip.save_frame("./images/final_clip.png") 
 
     print("---------------num_words-----------------------",len(row['Definition']))
 
@@ -73,11 +73,11 @@ for index, row in df.iterrows():
     tc2_width, tc2_height = title2.size
     color_clip2 = ColorClip(size=(tc2_width+100, tc2_height+50),color=(255,255,255))
     color_clip2 = color_clip2.set_opacity(.8)
-    color_clip2.save_frame("./images/colorClip2.png") 
-    title2.save_frame("./images/title2.png") 
+    # color_clip2.save_frame("./images/colorClip2.png") 
+    # title2.save_frame("./images/title2.png") 
     final_clip2 = CompositeVideoClip([color_clip2,title2]).set_duration(6)
     final_clip2 = final_clip2.set_position(("center"))
-    final_clip2.save_frame("./images/final_clip2.png") 
+    # final_clip2.save_frame("./images/final_clip2.png") 
 
 
     # Add the third text clip
@@ -92,11 +92,11 @@ for index, row in df.iterrows():
     tc3_width, tc3_height = title3.size
     color_clip3 = ColorClip(size=(tc3_width+20, tc3_height+10),color=(255,255,255))
     color_clip3 = color_clip3.set_opacity(.8)
-    color_clip3.save_frame("./images/colorClip3.png") 
-    title3.save_frame("./images/title3.png") 
+    # color_clip3.save_frame("./images/colorClip3.png") 
+    title3.save_frame("../Files/images/title3.png") 
     final_clip3 = CompositeVideoClip([color_clip3,title3])
     final_clip3 = final_clip3.set_position(("center")).set_duration(6).set_start(6)
-    final_clip3.save_frame("./images/final_clip3.png")
+    # final_clip3.save_frame("./images/final_clip3.png")
     # Combine the video clip with the two text clips
 
 
@@ -108,17 +108,19 @@ for index, row in df.iterrows():
 
         # Define the desired resolution
     new_size = (1920, 1080)  # or any other resolution you want
-
+    fps = 30
     # Resize the clip to the new resolution
     #resized_clip = video_with_text.resize(new_size)
     resized_clip = video_with_text.resize(height=target_height)
 
+    video_fps = resized_clip.set_fps(fps)
+
     # Crop the video to the desired aspect ratio
    # cropped_clip = crop(resized_clip, width=target_width, height=int(target_width * 16 / 9), x_center=target_height/2, y_center=target_width/2)
 
-    print("./videos/"+row['Topics']+".mp4")
+    print("../videos/"+row['Topics']+".mp4")
 
     # Save the modified video file
-    resized_clip.write_videofile("./videos/"+row['Topics']+".mp4")
+    video_fps.write_videofile("../videos/"+row['Topics']+".mp4")
 
 
