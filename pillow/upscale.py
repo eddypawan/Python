@@ -33,7 +33,7 @@ def upscale_images(input_folder, output_folder):
         else:
             scale_factor = 2
 
-        # Calculate the new size based on the scale factor
+        # Calculate the new size based on the scale factor ///review
         width = int(image.width * scale_factor)
         height = int(image.height * scale_factor)
 
@@ -51,6 +51,8 @@ input_folder = "G:/Python/pythonRepo/Python/Files/tobeupscaleImages"
 output_folder = "G:/Python/pythonRepo/Python/Files/upscaledImages"
 
 upscale_images(input_folder, output_folder)
+
+
 
 
 

@@ -1,0 +1,47 @@
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore virtual environment files
+venv/
+env/
+*.env
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+
+# Ignore logs and temporary files
+*.log
+*.bak
+*.tmp
+
+# Ignore database files
+*.db
+*.sqlite3
+
+# Ignore generated files and build artifacts
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+dist/
+build/
+videos/
+Files/
+*.egg-info/
+
+# Ignore dependencies
+# Adjust these patterns based on your specific use case
+# For example, if you're using pipenv:
+# Pipfile
+# Pipfile.lock
+
+# Ignore sensitive or private information
+# Add any files or directories containing sensitive or private information that should not be committed
+secrets/
+config.ini
+
+# Ignore any other files or directories you want to exclude
